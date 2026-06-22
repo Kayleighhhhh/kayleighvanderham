@@ -1,0 +1,33 @@
+{
+  "name": "kayleighvanderham",
+  "version": "1.0.0",
+  "description": "portfolio",
+  "main": "server.js",
+  "type": "module",
+  "directories": {
+    "doc": "docs"
+  },
+  "scripts": {
+    "start": "node server.js"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/kayleighhhhh/kayleighvanderham.git"
+  },
+  "keywords": [
+    "node",
+    "express",
+    "ejs"
+  ],
+  "author": "Kayleigh van der Ham",
+  "license": "MIT",
+  "bugs": {
+    "url": "https://github.com/kayleighhhhh/kayleighvanderham/issues"
+  },
+  "homepage": "https://github.com/kayleighhhhh/kayleighvanderham",
+  "dependencies": {
+    "express": "^5.0.1",
+    "feedsmith": "^2.9.4",
+    "liquidjs": "^10.21.0"
+  }
+}
