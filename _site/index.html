@@ -4,59 +4,217 @@
 <head>
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <meta name="description" content="Portfolio of Kayleigh van der Ham.">
 
   <title>Kayleigh van der Ham</title>
 
   <style>
+    
     @font-face {
       font-family: Playfair;
-      src: url('assets/fonts/PlayfairDisplay-VariableFont_wght.ttf');
+      src: url('/assets/fonts/PlayfairDisplay-VariableFont_wght.ttf');
+      font-weight: 400 900;
+      font-display: swap;
     }
 
     @font-face {
       font-family: Inter;
-      src: url('assets/fonts/Inter-VariableFont_opsz,wght.ttf');
+      src: url('/assets/fonts/Inter-VariableFont_opsz,wght.ttf');
+      font-weight: 100 900;
+      font-display: swap;
     }
 
-    * {
-      box-sizing: border-box;
-      font-family: Playfair, Inter;
+    :root {
+      --bg: #FEF9F6;
+      --bg-warm: antiquewhite;
+      --ink: #3b2f2a;
+      --accent: #a0522d;
+      --accent-dark: #7d3f22;
+      --shadow: burlywood;
+      --content-width: 60rem;
+    }
 
+    *,
+    *::before,
+    *::after {
+      box-sizing: border-box;
     }
 
     body {
-      background-color: #FEF9F6;
+      container-type: inline-size;
+      container-name: page;
       margin: 0;
-
-
-      header {
-        display: flex;
-        flex-direction: column;
-        align-items: center;
-        padding: 2em;
-      }
-
-      .about {
-        background-color: antiquewhite;
-        padding: 2em;
-
-        article {
-          border-radius: 20px;
-          box-shadow: 0px 0px 5px 0px burlywood;
-          padding: 1em;
-          margin: 1em 0;
-        }
-      }
-
-      .skills {
-    
+      background-color: var(--bg);
+      color: var(--ink);
+      font-family: Inter, system-ui, sans-serif;
+      line-height: 1.6;
     }
 
+    h1,
+    h2,
+    h3 {
+      font-family: Playfair, Georgia, serif;
+      line-height: 1.2;
+    }
+
+    a:focus-visible {
+      outline: 3px solid var(--accent-dark);
+      outline-offset: 3px;
+    }
+
+    header {
+      display: flex;
+      flex-direction: column;
+      align-items: center;
+      gap: 1rem;
+      padding: 3rem 2rem;
+      text-align: center;
+    }
+
+    header h1 {
+      margin: 0;
+      font-size: clamp(3rem, 13cqi, 6.5rem);
+      letter-spacing: 0.02em;
+    }
+
+    header h1 span {
+      display: inline-block;
+    }
+
+    header img {
+      display: block;
+      max-width: 100%;
+      height: auto;
+    }
+
+    header h2 {
+      margin: 0;
+      font-family: Inter, system-ui, sans-serif;
+      font-size: clamp(1.1rem, 3cqi, 1.5rem);
+      font-weight: 400;
+    }
+
+    section {
+      padding: 3rem max(1.5rem, calc((100% - var(--content-width)) / 2));
+    }
+
+    section h2 {
+      margin: 0 0 1.5rem;
+      font-size: clamp(1.8rem, 5cqi, 2.5rem);
+    }
+
+    .about,
+    .projects {
+      display: grid;
+      grid-template-columns: 1fr;
+      gap: 1.5rem;
+      background-color: var(--bg-warm);
+    }
+
+    .about h2,
+    .projects h2 {
+      grid-column: 1 / -1;
+      margin: 0;
+    }
+
+    .about article,
+    .projects article {
+      padding: 1.5rem;
+      border-radius: 20px;
+      background-color: var(--bg);
+      box-shadow: 0 0 5px 0 var(--shadow);
+    }
+
+    article h3 {
+      margin: 0 0 0.5rem;
+      font-size: 1.35rem;
+    }
+
+    article p {
+      margin: 0;
+    }
+
+    .skills ul {
+      display: flex;
+      flex-wrap: wrap;
+      gap: 0.75rem;
+      margin: 0;
+      padding: 0;
+      list-style: none;
+    }
+
+    .skills li {
+      padding: 0.4rem 1.25rem;
+      border-radius: 999px;
+      background-color: var(--bg-warm);
+      box-shadow: 0 0 5px 0 var(--shadow);
+    }
+
+    .skills li p {
+      margin: 0;
+      font-weight: 500;
+    }
+
+    .projects article {
+      display: flex;
+      flex-direction: column;
+      gap: 0.75rem;
+    }
+
+    .projects article h3 {
+      margin: 0;
+    }
+
+    .projects a {
+      margin-top: auto;
+      align-self: flex-start;
+      padding: 0.5rem 1.25rem;
+      border-radius: 999px;
+      background-color: var(--accent);
+      color: #fff;
+      font-weight: 500;
+      text-decoration: none;
+    }
+
+    .projects a:hover {
+      background-color: var(--accent-dark);
+    }
+
+    @container page (min-width: 36rem) {
+      .projects {
+        grid-template-columns: repeat(2, 1fr);
+      }
+    }
+
+    @container page (min-width: 48rem) {
+      .about {
+        grid-template-columns: repeat(3, 1fr);
+      }
+    }
+
+    @media (prefers-reduced-motion: no-preference) {
+      header h1 span {
+        transition: transform 0.2s ease;
+      }
+
+      header h1 span:hover {
+        transform: translateY(-0.08em) rotate(-4deg);
+      }
+
+      .projects article {
+        transition: transform 0.2s ease, box-shadow 0.2s ease;
+      }
+
+      .projects article:hover {
+        transform: translateY(-3px);
+        box-shadow: 0 4px 12px 0 var(--shadow);
+      }
     }
   </style>
 
 </head>
 <body>
+
 
   <header>
     <h1><span>K</span><span>a</span><span>y</span><span>l</span><span>e</span><span>i</span><span>g</span><span>h</span>
@@ -74,18 +232,18 @@
     <h2>About me</h2>
 
     <article>
-      <h3>Who i am</h3>
-      <p>my name is Kayleigh van der Ham.</p>
+      <h3>Who I am</h3>
+      <p>I’m Kayleigh van der Ham, a frontend design and development student looking for an internship. I want to learn from a team while helping to design and build interfaces that are great to use.</p>
     </article>
 
     <article>
-      <h3>What i love</h3>
-      <p>I love being creative, in any way posible, or reading a good book!</p>
+      <h3>What I love</h3>
+      <p>I love being creative, in any way possible. That’s why I enjoy both sides of frontend! designing in Figma and bringing it to life in code.</p>
     </article>
 
     <article>
-      <h3>nog iets</h3>
-      <p>iets daarover</p>
+      <h3>Off screen</h3>
+      <p>When I’m not building, I’m reading fantasy novels like Fourth Wing for the stories, and frontend blogs to keep learning.</p>
     </article>
   </section>
 
@@ -115,8 +273,8 @@
 
     <article>
       <h3>Embassy of the Free Mind</h3>
-      <p>This was the very first project i did. I sometimes look back at this project to see how much i've improved.
-        they wanted a redesign and a catalog for all the books in the museum.</p>
+      <p>This was the very first project I did. I sometimes look back at this project to see how much I've improved.
+        They wanted a redesign and a catalog for all the books in the museum.</p>
       <a href="https://kayleighhhhh.github.io/fix-the-flow-interactive-website/">link to the project</a>
     </article>
 
@@ -137,6 +295,7 @@
       <p>introduction about the project</p>
       <a href="#">link to the project</a>
     </article>
+  </section>
 
 </body>
 </html>
