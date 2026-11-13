@@ -165,7 +165,8 @@
       margin: 0;
     }
 
-    .projects a {
+    .projects a,
+    .contact a {
       margin-top: auto;
       align-self: flex-start;
       padding: 0.5rem 1.25rem;
@@ -176,8 +177,22 @@
       text-decoration: none;
     }
 
-    .projects a:hover {
+    .projects a:hover,
+    .contact a:hover {
       background-color: var(--accent-dark);
+    }
+
+    .contact p {
+      margin: 0 0 1.5rem;
+    }
+
+    .contact ul {
+      display: flex;
+      flex-wrap: wrap;
+      gap: 0.76rem;
+      margin: 0;
+      padding: 0;
+      list-style: none;
     }
 
     @container page (min-width: 36rem) {
@@ -233,7 +248,7 @@
 
     <article>
       <h3>Who I am</h3>
-      <p>I’m Kayleigh van der Ham, a frontend design and development student looking for an internship. I want to learn from a team while helping to design and build interfaces that are great to use.</p>
+      <p>My name is Kayleigh van der Ham, a frontend design and development student looking for an internship. I want to learn from a team while helping to design and build interfaces that are great to use.</p>
     </article>
 
     <article>
@@ -281,20 +296,31 @@
     <article>
       <h3>Radioguide</h3>
       <p>introduction about the project</p>
-      <a href="#">link to the project</a>
+      <a href="https://kayleighhhhh.github.io/the-startup-responsive-interactive-website/">link to the project</a>
     </article>
 
     <article>
       <h3>Prelude Fonds</h3>
       <p>introduction about the project</p>
-      <a href="#">link to the project</a>
+      <a href="https://pleasurable-ui-6dw8.onrender.com/">link to the project</a>
     </article>
 
     <article>
       <h3>Tweakers</h3>
       <p>introduction about the project</p>
-      <a href="#">link to the project</a>
+      <a href="https://proof-of-concept-d99b.onrender.com/">link to the project</a>
     </article>
+  </section>
+  <section class="contact">
+    <h2>Get in touch</h2>
+    <p>I'm currently looking for an internship. Send me a message or take a look at my work online.</p>
+
+    <ul>
+      <li><a href="mailto:kayleighvdham04@gmail.com">Email</a></li>
+      <li><a href="https://www.linkedin.com/in/kayleigh-van-der-ham-952576267/">LinkedIn</a></li>
+      <li><a href="https://github.com/Kayleighhhhh">Github</a></li>
+      <li><a href="https://bsky.app/profile/kayleighhhhh.bsky.social">BlueSky</a></li>
+    </ul>
   </section>
 
 </body>

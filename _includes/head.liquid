@@ -165,7 +165,8 @@
       margin: 0;
     }
 
-    .projects a {
+    .projects a,
+    .contact a {
       margin-top: auto;
       align-self: flex-start;
       padding: 0.5rem 1.25rem;
@@ -176,8 +177,22 @@
       text-decoration: none;
     }
 
-    .projects a:hover {
+    .projects a:hover,
+    .contact a:hover {
       background-color: var(--accent-dark);
+    }
+
+    .contact p {
+      margin: 0 0 1.5rem;
+    }
+
+    .contact ul {
+      display: flex;
+      flex-wrap: wrap;
+      gap: 0.76rem;
+      margin: 0;
+      padding: 0;
+      list-style: none;
     }
 
     @container page (min-width: 36rem) {
