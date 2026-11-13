@@ -209,11 +209,52 @@
 
     @media (prefers-reduced-motion: no-preference) {
       header h1 span {
+        animation: letter-in 0.7s cubic-bezier(0.2, 0.8, 0.2, 1) backwards;
+        animation-delay: calc(var(--i) * 70ms);
         transition: transform 0.2s ease;
+      }
+
+      header h1 span:nth-child(1) { --i: 0; }
+      header h1 span:nth-child(2) { --i: 1; }
+      header h1 span:nth-child(3) { --i: 2; }
+      header h1 span:nth-child(4) { --i: 3; }
+      header h1 span:nth-child(5) { --i: 4; }
+      header h1 span:nth-child(6) { --i: 5; }
+      header h1 span:nth-child(7) { --i: 6; }
+      header h1 span:nth-child(8) { --i: 7; }
+
+      @keyframes letter-in {
+        from {
+          opacity: 0;
+          transform: translateY(-0.6em) rotate(-8deg);
+        }
       }
 
       header h1 span:hover {
         transform: translateY(-0.08em) rotate(-4deg);
+      }
+
+      header h1 span:hover + span {
+        transform: translateY(-0.04em);
+      }
+
+      header h1 span:has(+ span:hover) {
+        transform: translateY(-0.04em);
+      }
+
+      @supports (animation-timeline: view()) {
+        header h1 {
+          animation: name-away linear both;
+          animation-timeline: view();
+          animation-range: exit 0% exit 80%;
+        }
+
+        @keyframes name-away {
+          to {
+            opacity: 0.15;
+            transform: scale(0.9) translateY(-1rem);
+          }
+        }
       }
 
       .projects article {
